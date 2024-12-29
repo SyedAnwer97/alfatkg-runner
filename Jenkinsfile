@@ -8,14 +8,14 @@ pipeline{
         }
         stage('Run Test'){
             steps{
-                bat 'docker-compose -f test_suite.yaml up'
+                bat 'docker-compose -f testsuite.yaml up'
             }
         }
     }
     post{
         always{
             sh 'docker-compose -f grid.yaml down'
-            sh 'docker-compose -f test_suite.yaml down'
+            sh 'docker-compose -f testsuite.yaml down'
         }
     }
 }

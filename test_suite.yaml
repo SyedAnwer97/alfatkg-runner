@@ -1,4 +1,0 @@
-alfatkg:
-  image: syedanwer97/alfatkg
-  volumes:
-    - ./output/test-output:/home/official_alfaTKG/test-output

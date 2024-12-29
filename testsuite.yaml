@@ -1,0 +1,6 @@
+version: "3"
+services:
+  alfatkg:
+    image: syedanwer1997/alfatkg
+    volumes:
+      - ./output/test-output:/home/official_alfaTKG/test-output
