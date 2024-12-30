@@ -16,6 +16,7 @@ pipeline{
         always{
             bat 'docker-compose -f grid.yaml down'
             bat 'docker-compose -f testsuite.yaml down'
+            archiveArtifacts artifacts: 'output/test-output/index.html', followSymlinks: false
         }
     }
 }
