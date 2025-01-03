@@ -9,7 +9,7 @@ services:
     deploy:
       replicas: 1
     env_file: .env
-    firefox:
+  firefox:
       image: selenium/node-firefox:4.16
       shm_size: '2g'
       depends_on:

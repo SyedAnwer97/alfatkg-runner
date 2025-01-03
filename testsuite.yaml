@@ -3,3 +3,4 @@ services:
     image: syedanwer1997/alfatkg
     volumes:
       - ./output/test-output:/home/official_alfaTKG/test-output
+      - ./output/extent-test-output:/home/official_alfaTKG/extent-test-output
