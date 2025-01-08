@@ -7,19 +7,19 @@ pipeline{
     stages{
         stage('Start Grid'){
             steps{
-                bat 'docker-compose -f grid.yaml up --scale ${params.BROWSER}=2 -d'
+                bat "docker-compose -f grid.yaml up --scale ${params.BROWSER}=2 -d"
             }
         }
         stage('Run Test'){
             steps{
-                bat 'THREAD_COUNT=${params.THREAD_COUNT} docker-compose -f testsuite.yaml up'
+                bat "docker-compose -f testsuite.yaml up"
             }
         }
     }
     post{
         always{
-            bat 'docker-compose -f grid.yaml down'
-            bat 'docker-compose -f testsuite.yaml down'
+            bat "docker-compose -f grid.yaml down"
+            bat "docker-compose -f testsuite.yaml down"
             archiveArtifacts artifacts: 'output/test-output/index.html', followSymlinks: false
         }
     }
