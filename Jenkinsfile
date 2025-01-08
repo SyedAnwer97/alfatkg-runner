@@ -7,12 +7,12 @@ pipeline{
     stages{
         stage('Start Grid'){
             steps{
-                bat 'THREAD_COUNT=${params.THREAD_COUNT} docker-compose -f grid.yaml up --scale ${params.BROWSER}=2 -d'
+                bat 'docker-compose -f grid.yaml up --scale ${params.BROWSER}=2 -d'
             }
         }
         stage('Run Test'){
             steps{
-                bat 'docker-compose -f testsuite.yaml up'
+                bat 'THREAD_COUNT=${params.THREAD_COUNT} docker-compose -f testsuite.yaml up'
             }
         }
     }
